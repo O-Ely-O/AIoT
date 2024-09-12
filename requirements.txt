@@ -4,3 +4,5 @@ psycopg2-binary
 ultralytics
 Flask-Bcrypt
 Flask-MQTT
+opencv-python
+bcrypt
