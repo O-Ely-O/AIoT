@@ -1,0 +1,605 @@
+{% extends 'layout.html' %}
+{% block content %}
+<main class="main-container">
+    <div class="sensor-switch-card">
+        <div class="security-alarm-container">        
+        <div class="security-container">
+            <div class="switch-h">
+                <h2 class="switch-font">SECURITY</h2>
+            </div>
+            <div class="security-inner-circle"></div>
+            <div class="security-inner-center-circle">
+                <img src="{{ url_for('static', filename='images/house-lock.svg') }}" alt="">
+            </div>
+            <div class="security-btn">
+                <button type="button"  onclick="pinlogin.securityBtn()" class="inner-sec-btn" id="1">BYPASS</button>
+            </div>
+        </div>
+            
+        <div class="sensor-container">
+            <div class="sensor-h">
+                <h2 class="sensor-font">SENSORS</h2>
+            </div>
+            <div class="sensor-card">
+                <div class="area-sensor">
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>Front Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-2" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="2">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/sliding-door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>1F Sliding Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-3" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="3">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>Garage Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-4" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="4">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>Guest Room Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-5" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="5">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>Room-2 Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-6" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="6">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/sliding-door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>2F Sliding Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-7" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="7">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/sliding-door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>Room-2 Sliding-W</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-8" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="8">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor-cardInner">
+                        <div>
+                            <div class="background_box">
+                                <div>
+                                    <div class="sensor-img-container">
+                                        <img src="{{ url_for('static', filename='images/door.png') }}" alt="">
+                                    </div>
+                                    <div class="sensor-text-container">
+                                        <h3>Master's Room Door</h3>
+                                            <div class="toggle-settings">
+                                                <span class="sub-sensor-toggle-text">Active State: </span>
+                                                <span class="sub-sensor-toggle-text-2" id="sensorStatus-9" style="color:red">Closed </span>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="bypass-btn" id="9">BYPASS</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="switch-dimmer-container">
+    <div class="switch-container">
+        <div class="switch-h">
+            <h2 class="switch-font">LIGHTING</h2>
+            <img src="{{ url_for('static', filename='images/lightb.svg') }}" alt="">
+        </div>
+        <div class="switch-card">
+            <div class="area-switch">
+                <div>
+                    <div class="background_box">
+                        <div>
+                            <span class="toggle-text">LIVING ROOM</span>
+                            <div class="toggle-settings">
+                                <span class="sub-toggle-text">Active State: </span>
+                                <span class="sub-toggle-text-2" id="toggle-text-LR" style="color:red">OFF </span>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="swLR" class="toggle-checkbox" />
+                        <label for="swLR" class="toggle"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="area-switch">
+                <div>
+                    <div class="background_box">
+                        <div>
+                            <span class="toggle-text">ENTERTAINMENT</span>
+                            <div class="toggle-settings">
+                                <span class="sub-toggle-text">Active State: </span>
+                                <span class="sub-toggle-text-2" id="toggle-text-LR" style="color:red">OFF </span>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="swENT" class="toggle-checkbox" />
+                        <label for="swENT" class="toggle"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="area-switch">
+                <div>
+                    <div class="background_box">
+                        <div>
+                            <span class="toggle-text">VERANDA</span>
+                            <div class="toggle-settings">
+                                <span class="sub-toggle-text">Active State: </span>
+                                <span class="sub-toggle-text-2" id="toggle-text-LR" style="color:red">OFF </span>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="swVND" class="toggle-checkbox" />
+                        <label for="swVND" class="toggle"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="area-switch">
+                <div>
+                    <div class="background_box">
+                        <div>
+                            <span class="toggle-text">KITCHEN</span>
+                            <div class="toggle-settings">
+                                <span class="sub-toggle-text">Active State: </span>
+                                <span class="sub-toggle-text-2" id="toggle-text-LR" style="color:red">OFF </span>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="swKN" class="toggle-checkbox" />
+                        <label for="swKN" class="toggle"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="area-switch">
+                <div>
+                    <div class="background_box">
+                        <div>
+                            <span class="toggle-text">DINING ROOM</span>
+                            <div class="toggle-settings">
+                                <span class="sub-toggle-text">Active State: </span>
+                                <span class="sub-toggle-text-2" id="toggle-text-LR" style="color:red">OFF </span>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="swDR" class="toggle-checkbox" />
+                        <label for="swDR" class="toggle"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="area-switch">
+                <div>
+                    <div class="background_box">
+                        <div>
+                            <span class="toggle-text">MASTER'S ROOM</span>
+                            <div class="toggle-settings">
+                                <span class="sub-toggle-text">Active State: </span>
+                                <span class="sub-toggle-text-2" id="toggle-text-LR" style="color:red">OFF </span>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="swMBR" class="toggle-checkbox" />
+                        <label for="swMBR" class="toggle">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="dimmer-container">
+            <div class="switch-h">
+                <h2 class="switch-font">DIMMERS</h2>
+                <img src="{{ url_for('static', filename='images/lightb.svg') }}" alt="">
+            </div>
+            <div id="dimmer-innercard">
+                <div id="dimmer-name">
+                    <span>Dimmer Control</span>
+                    <span>Entertainment:</span>
+                </div>
+                <div id="lane">
+                    <span id="knob"></span>
+                </div>
+            </div>
+            <div id="dimmer-innercard">
+                <div id="dimmer-name">
+                    <span>Dimmer Control</span>
+                    <span>Working Table:</span>
+                </div>
+                <div id="lane">
+                    <span id="knob"></span>
+                </div>
+            </div>
+            <div id="dimmer-innercard">
+                <div id="dimmer-name">
+                    <span>Dimmer Control</span>
+                    <span>Wall Frame:</span>
+                </div>
+                <div id="lane">
+                    <span id="knob"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="temp-app-container">
+        <div class="temperature-container">
+            <div class="temperature-h">
+                <h2 class="sensor-font">TEMPERATURE</h2>
+            </div>
+            <div id="gauge">
+                <div id="major-ticks">
+                    <span>10°C</span>
+                    <span>25°C</span>
+                    <span>50°C</span>
+                </div>
+                <div id="minor-ticks">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                    <span style="--i:17"></span>
+                    <span style="--i:18"></span>
+                    <span style="--i:19"></span>
+                    <span style="--i:20"></span>
+                </div>
+                <div id="minor-ticks-bottom-mask"></div>
+                <div id="bottom-circle"></div>
+                <svg id="gauge-1" version="1.1" baseProfile="full" viewbox="0 -3 188 200" xmins="http://www.w3.org/2000/svg">
+                    <linearGradient id="gradient" x1="0" x2="1" y1="0" x2="0">
+                        <stop offset="0%" stop-color="#b96e85"/>
+                        <stop offset="100%" stop-color="#ae69bb"/>
+                    </linearGradient>
+                    <path id="gauge-1" d="M5 95 A80 80 0 0 1 183 95" stroke=url(#gradient) fill="none" stroke-width="17" stroke-linecap="round" stroke-dasharray="0 282.78"/>
+                </svg>
+                <div id="center-circle">
+                    <span id="gauge-name">GARAGE</span>
+                    <span class="temperature" id="temp1">30</span>
+                    <img src="{{ url_for('static', filename='images/temperature.png') }}" alt="">
+                </div>
+        </div>
+            
+            <div id="gauge">
+                <div id="major-ticks">
+                    <span>10°C</span>
+                    <span>25°C</span>
+                    <span>50°C</span>
+                </div>
+                <div id="minor-ticks">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                    <span style="--i:17"></span>
+                    <span style="--i:18"></span>
+                    <span style="--i:19"></span>
+                    <span style="--i:20"></span>
+                </div>
+                <div id="minor-ticks-bottom-mask"></div>
+                <div id="bottom-circle"></div>
+                <svg id="gauge-2" version="1.1" baseProfile="full" viewbox="0 -3 188 200" xmins="http://www.w3.org/2000/svg">
+                    <linearGradient id="gradient" x1="0" x2="1" y1="0" x2="0">
+                        <stop offset="0%" stop-color="#b96e85"/>
+                        <stop offset="100%" stop-color="#ae69bb"/>
+                    </linearGradient>
+                    <path d="M5 95 A80 80 0 0 1 185 95" stroke=url(#gradient) fill="none" stroke-width="17" stroke-linecap="round" stroke-dasharray="0 282.78"/>
+                </svg>
+                <div id="center-circle">
+                    <span id="gauge-name">GARDEN</span>
+                    <span class="temperature" id="temp2">20</span>
+                    <img src="{{ url_for('static', filename='images/temperature.png') }}" alt="">
+                </div>
+        </div>
+            
+            <div id="gauge">
+                <div id="major-ticks">
+                    <span>10°C</span>
+                    <span>25°C</span>
+                    <span>50°C</span>
+                </div>
+                <div id="minor-ticks">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                    <span style="--i:17"></span>
+                    <span style="--i:18"></span>
+                    <span style="--i:19"></span>
+                    <span style="--i:20"></span>
+                </div>
+                <div id="minor-ticks-bottom-mask"></div>
+                <div id="bottom-circle"></div>
+                <svg id="gauge-3" version="1.1" baseProfile="full" viewbox="0 -3 188 200" xmins="http://www.w3.org/2000/svg">
+                    <linearGradient id="gradient" x1="0" x2="1" y1="0" x2="0">
+                        <stop offset="0%" stop-color="#b96e85"/>
+                        <stop offset="100%" stop-color="#ae69bb"/>
+                    </linearGradient>
+                    <path d="M5 95 A80 80 0 0 1 185 95" stroke=url(#gradient) fill="none" stroke-width="17" stroke-linecap="round" stroke-dasharray="0 282.78"/>
+                </svg>
+                <div id="center-circle">
+                    <span id="gauge-name">LAUNDRY</span>
+                    <span class="temperature" id="temp3">10</span>
+                    <img src="{{ url_for('static', filename='images/temperature.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="pv-container">
+            <div class="temperature-h">
+                <h2 class="sensor-font">SOLARPANEL</h2>
+            </div>
+            <div class="pv-card">
+                <div class="battery-card">
+                    <div class="battery-data">
+                        <span class="battery-text">BATTERY1</span>
+                        <h3 class="battery-percentage" id="batt-ptg">19</h3>
+                        <span class="battery-status" id="batt-ss-1">Low Battery <i class="ri-plug-line animated-red"></i></span>
+                    </div>
+                 </div>
+                <div class="battery-pill">
+                    <div class="battery-level">
+                        <div class="battery-liquid"></div>
+                    </div>
+                </div>      
+            </div>
+            <div class="pv-card">
+                <div class="battery-card">
+                    <div class="battery-data">
+                        <span class="battery-text">BATTERY2</span>
+                        <h3 class="battery-percentage" id="batt-ptg">19</h3>
+                        <span class="battery-status" id="batt-ss-2">Low Battery <i class="ri-plug-line animated-red"></i></span>
+                    </div>
+                 </div>
+                <div class="battery-pill">
+                    <div class="battery-level">
+                        <div class="battery-liquid"></div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        
+            <div class="appliance-container">
+                <div class="temperature-h">
+                    <h2 class="sensor-font">APPLIANCES</h2>
+                </div>
+                <div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">SmartTV</span>
+                                <i class="ri-tv-line animated-white"></i>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">Washer</span>
+                                <span id="app-g-icon" class="material-symbols-outlined animated-white">local_laundry_service</span>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">SmartTV</span>
+                                <i class="ri-tv-line animated-white"></i>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">LampD</span>
+                                <span id="app-g-icon" class="material-symbols-outlined animated-white">wall_lamp</span>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">Microwave</span>
+                                <span id="app-g-icon" class="material-symbols-outlined animated-white">microwave</span>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">SmartTV</span>
+                                <i class="ri-tv-line animated-white"></i>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">LED's</span>
+                                <span id="app-g-icon" class="material-symbols-outlined animated-white">backlight_low</span>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">Air Purifier</span>
+                                <span id="app-g-icon" class="material-symbols-outlined animated-white">air_purifier</span>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appliance-card">
+                        <div class="app-innercard">
+                            <div class="app-data">
+                                <span class="app-text">SmartTV</span>
+                                <i class="ri-tv-line animated-white"></i>
+                                <span class="app-status">Last Active:</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="charts">
+        <div class="inner-chart">
+            <div class="canvas-card">
+                <canvas class="chart-data" id="power-consumption"></canvas>
+            </div>
+        </div>
+        <div class="inner-chart">
+            <div class="canvas-card">
+                <canvas class="chart-data" id="water-consumption"></canvas>
+            </div>
+        </div>
+        <div class="inner-chart">
+            <div class="canvas-card">
+                <canvas class="chart-data" id="weather-api"></canvas>
+            </div>
+        </div>
+        <div class="events">
+            <h2 class="switch-font">LOGS</h2>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'register.html' %}
+{% block content %}
+<!-- <div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }} </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div> -->
+
+<div class="wrapper">
+    <span class="bg-animate"></span>
+    <span class="bg-animate2"></span>
+    
+    <div class="form-box login">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <h1 class="animation" style="--i:0;">Login</h1>
+            <div class="input-box animation" style="--i:1;">
+                <div class="input-field">
+                    {{ form.email.label }}
+                    {{ form.email() }}
+                    <span class="material-symbols-outlined">mail</span>
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                            <div id="dialogCont" class="dlg-container dlg-input-msg--error">
+                                <div class="pin-key material-symbols-outlined animated-red">priority_high</div>
+                                <div class="dlg-header">
+                                    {{error}}
+                                </div>
+                                <div>
+                                    <button type="button" class="btn">RETRY</button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="input-box animation" style="--i:2;">
+                <div class="input-field">
+                    {{ form.password.label }}
+                    {{ form.password() }}
+                    <span class="material-symbols-outlined">lock</span>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div id="dialogCont" class="dlg-container-2 dlg-input-msg--error">
+                                    <div class="pin-key material-symbols-outlined animated-red">priority_high</div>
+                                    <div class="dlg-header">
+                                        {{ message }}
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn">RETRY</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="input-btn animation" style="--i:3;">
+                    {{ form.submit() }}
+                </div>
+                <div class="logreg-link animation" style="--i:4;">
+                    <p>Create Account
+                        <a class="register-link" href="{{ url_for('register') }}">Sign Up</a>
+                    </p>
+             </div>
+            </div>
+        </form>
+    </div>
+    <div class="info-text login">
+        <img class="animation" style="--i=0;" src="{{ url_for('static', filename='images/automation.png') }}" alt="">
+        <h1 class="animation" style="--i=1;">H A S</h1>
+        <h6 class="animation" style="--i=2;">Home Automation System</h6>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+<main class="main-container">
+    <div class="pwr-wtr-chart"></div>
+    <div class="table-chart">
+        <div class="table">
+            <section class = "table_header"><h1>DATA-TABLE</h1>
+                <div class="input-group">
+                    <input type="search" placeholder="Search Data...">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+            </section>
+
+            <section class = "table_body">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for header in col %}
+                            <th>{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>{{ cell }} </td>
+                            {% endfor %}    
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>    
+    </div>
+</main>
+{% endblock %}

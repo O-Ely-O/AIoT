@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block content %}
+<main class="main-container">
+    <div class="sub-cards">
+        <div class="card">
+            <div class="surveillance-table">
+                <div class="surveillance-header">
+                    <h1 class="camera-font">BROADCAST</h1>
+                    <div class="circle"></div>
+                </div>
+                <div class="grid-surveillance-container">
+                    <div class="camera">
+                        <div class="camera-header">
+                            <h1 class="camera-font">CAM:1</h1>
+                            <span class="material-icons-outlined">videocam</span>
+                        </div>
+                        <div class="cam1remoteVideo">
+                            <img src="{{ url_for('video_feed', id='0') }}"/>
+                        </div>
+                    </div>
+                    <div class="camera">
+                        <div class="camera-header">
+                            <h1 class="camera-font">CAM:2</h1>
+                            <span class="material-icons-outlined">videocam</span>
+                        </div>
+                        <div class="cam2remoteVideo">
+                            <img src="{{ url_for('video_feed', id='1') }}"/>
+                        </div>
+                    </div>
+                    <div class="camera">
+                        <div class="camera-header">
+                            <h1 class="camera-font">CAM:3</h1>
+                            <span class="material-icons-outlined">videocam</span>
+                        </div>
+                    </div>
+                    <div class="camera">
+                        <div class="camera-header">
+                            <h1 class="camera-font">CAM:4</h1>
+                            <span class="material-icons-outlined">videocam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="surveillance-logs">
+        </div>
+    </div>
+</main>
+{% endblock %}

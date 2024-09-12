@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+psycopg2-binary
+ultralytics
+Flask-Bcrypt
+Flask-MQTT

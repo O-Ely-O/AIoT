@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HAS (Home Automation System)</title>
+        <!-- ======= Styles ====== -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+        <!-- =========== Chartjs =========  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div id="freezeLayer" class="freeze-layer"></div>
+            <!-- =========== Header =========  -->
+            <header class="header">
+                <div class="menu-icon" id="menu-inner">
+                <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="menu-icon-2" id="header-title">
+                    <div class="menu-outer">
+                        <span class="material-icons-outlined">menu</span>
+                    </div>
+                    <a class="home-link" href="{{ url_for('mqtt_temp') }}">
+                        <span class="font-weight-bold">DASHBOARD</span>
+                    </a>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                    <img src="{{ url_for('static', filename='images/James.jpg') }}" alt="">
+                </div>
+                <div id="mainPinpad" class="dlg-container">
+                    <div class="dlg-header">
+                        Enter Your Code
+                    </div>
+                    <div class="dlg-body">
+                        {{ form.hidden_tag() }}
+                        {{ form.pincode(readonly=true) }}
+                    </div>
+                    <div class="dlg-footer">
+                        <!-- <div class="pin-key">1</div>
+                        <div class="pin-key">2</div>
+                        <div class="pin-key">3</div><br>
+                        <div class="pin-key">4</div>
+                        <div class="pin-key">5</div>
+                        <div class="pin-key">6</div><br>
+                        <div class="pin-key">7</div>
+                        <div class="pin-key">8</div>
+                        <div class="pin-key">9</div><br>
+                        <div class="pin-key material-icons-outlined">backspace</div>
+                        <div class="pin-key">0</div>
+                        <div class="pin-key material-icons-outlined">done
+                            {{ form.submit() }}
+                        </div> -->
+                    </div>
+                </div>
+            </header>
+            <!-- =========== Sidebar =========  -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <img src="{{ url_for('static', filename='images/automation.png') }}" alt="">
+                        <span class="title">H A S</span>
+                    </div>
+                </div>
+                <hr>
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item">
+                        <a class="sidebar-link" href="{{ url_for('analytics') }}">
+                            <span class="material-icons-outlined">analytics</span> Analytics
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">device_thermostat</span> Sensors
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a class="sidebar-link" href="{{ url_for('video_f') }}">
+                            <span class="material-icons-outlined">camera_outdoor</span> Surveillance
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">settings</span> Settings
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">https</span> Password
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a class="sidebar-link" href="{{ url_for('logout') }}">
+                            <span class="material-icons-outlined">logout</span> Sign Out
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- =========== Main =========  -->
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!-- =========== MQTT JS & Scripts=========  -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script>
+            const pinlogin = new Pinlogin({
+                el: document.getElementById("mainPinpad"),
+                maxNumbers: 6,
+                loginEndpoint: `${window.origin}/panel`,
+                maxDataCount: 10
+            });
+        </script>
+    </body>
+</html>

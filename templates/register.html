@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HAS (Home Automation System)</title>
+                <!-- ======= Styles ====== -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/regin.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        {% block content %}
+        <div class="wrapper">
+            <span class="bg-animate-reg"></span>
+            <span class="bg-animate2-reg"></span>
+            
+            <div class="form-box register">
+                <form name="registration-form" method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <h1 class="animation">Sign Up</h1>
+                    <div class="input-box animation">
+                        <div class="input-field">
+                            {{ form.username.label }}
+                            {{ form.username() }}
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                    </div>
+                    <div class="input-box animation">
+                        <div class="input-field">
+                            {{ form.email.label }}
+                            {{ form.email() }}
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                    </div>
+                    <div class="input-box animation">
+                        <div class="input-field">
+                            {{ form.password.label }}
+                            {{ form.password() }}
+                            <span class="material-symbols-outlined">lock</span>
+                        </div>
+                    </div>
+                    <div class="input-box animation">
+                        <div class="input-field">
+                            {{ form.confirm_password.label }}
+                            {{ form.confirm_password() }}
+                            <span class="material-symbols-outlined">lock</span>
+                        </div>
+                        <div class="input-btn animation">
+                            {{ form.submit() }}
+                        </div>
+                        <div class="logreg-link animation"">
+                            <p>Already have Account?
+                                <a class="login-link" href="{{ url_for('login') }}">Login</a>
+                            </p>
+                     </div>
+                    </div>
+                </form>
+            </div>
+            <div class="info-text register">
+                <h1 class="animation">H A S</h1>
+                <h6 class="animation">Home Automation System</h6>
+                <img class="animation" src="{{ url_for('static', filename='images/automation.png') }}" alt="">
+            </div>
+        </div>
+        {% endblock %}
+        <script src="{{ url_for('static', filename='js/prompt.js') }}"></script>   
+    </body>
+</html>
