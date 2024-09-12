@@ -2,5 +2,5 @@
 This also include Surveillance System Using OpenCV libraries hosted in local Socket server and YOLOv8 for Object Detection and with logs monitoring using MQTT Protocol.
 
 #### APP IMG
-[My Image](IMG1.JPG)
-[My Image](IMG2.JPG)
+Image in Login Page [My Image](IMG1.JPG)
+Dashboard [My Image](IMG2.JPG)
